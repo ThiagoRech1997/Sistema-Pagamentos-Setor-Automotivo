@@ -14,6 +14,7 @@ const routes = express.Router()
 
 routes.get('/users', UserController.index)
 routes.post('/users', UserController.store)
+routes.post('/users/auth', UserController.authentication)
 
 routes.get('/addresses', AddressesController.index)
 routes.post('/addresses', AddressesController.store)
