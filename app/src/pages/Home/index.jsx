@@ -10,10 +10,10 @@ export default function Home(){
     const history = useHistory()
 
     const login = useSelector((state) => state.login)
-    const { access } = login.login[1]
+    const { access } = login.login
 
     useEffect(() => {
-        (login.login.push === 0) ? history.push('/login') : console.log(access)
+        (access === '') ? history.push('/login') : console.log(login.login)
     }, [access, history, login])
 
     return(

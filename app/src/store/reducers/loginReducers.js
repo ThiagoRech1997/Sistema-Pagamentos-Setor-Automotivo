@@ -1,6 +1,7 @@
 import { LOGIN_EMAIL, LOGIN_EMAIL_FAIL, 
     LOGIN_PASSWORD, LOGIN_PASSWORD_FAIL,
-    LOGIN_DATA_REQUEST, LOGIN_DATA, LOGIN_DATA_FAIL
+    LOGIN_DATA_REQUEST, LOGIN_DATA, LOGIN_DATA_FAIL,
+    LOGIN_ACCESS, LOGIN_ACCESS_FAIL
 } from './../constants/loginConstants'
 
 export const loginReducer = (
@@ -57,6 +58,25 @@ export const loginDataReducer = (
                 login: action.payload
             }
         case LOGIN_DATA_FAIL:
+            return {
+                ...state,
+                message: action.payload.message
+            }
+        default: return state
+    }
+}
+
+export const applicationAccessReducer = (
+    state = { appAccess: '' },
+    action
+) => {
+    switch(action.type){
+        case LOGIN_ACCESS:
+            return {
+                ...state,
+                appAccess: action.payload
+            }
+        case LOGIN_ACCESS_FAIL:
             return {
                 ...state,
                 message: action.payload.message

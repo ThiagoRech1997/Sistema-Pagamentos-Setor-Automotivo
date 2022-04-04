@@ -15,9 +15,6 @@ export default function Login(){
     const { email } = loginEmail
     const loginPassword = useSelector((state) => state.loginPassword)
     const { password } = loginPassword
-    const login = useSelector((state) => state.login)
-
-    console.log(login)
 
     function authentication() {
         dispatch(handleLogin(email, password))
@@ -54,9 +51,6 @@ export default function Login(){
                         Submit
                     </Button>
                 </Form>
-                <div>
-                    <strong onClick={() => dispatch(handleLogin(email, password))}>Login</strong>
-                </div>
             </div>
         </div>
     )
