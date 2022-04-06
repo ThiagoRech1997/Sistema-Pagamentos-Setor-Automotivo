@@ -1,10 +1,13 @@
 import { combineReducers } from "redux";
 
-import { loginReducer, loginPassworReducer, loginDataReducer, applicationAccessReducer } from './loginReducers'
+import { loginReducer, loginPassworReducer, loginDataReducer } from './loginReducers'
+import { getClientsReducer } from './clientsReducers'
+import { getEmployeesReducer } from './employeesReducers'
 
 export const reducers = combineReducers({
     loginEmail: loginReducer,
     loginPassword: loginPassworReducer,
     login: loginDataReducer,
-    applicationAccess: applicationAccessReducer
+    getClients: getClientsReducer,
+    getEmployees: getEmployeesReducer
 });

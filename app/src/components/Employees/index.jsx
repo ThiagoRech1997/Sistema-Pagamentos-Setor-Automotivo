@@ -1,19 +1,18 @@
-import React, { useEffect } from "react"
+import React, { useEffect }from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { Table } from 'react-bootstrap'
 
-import { handleClientsList } from './../../store/actions/clientsActions'
+import { handleEmployeesList } from './../../store/actions/employeesActions'
 
 export default function Clients() {
     const dispatch = useDispatch()
 
-    const getClients = useSelector((state) => state.getClients)
-    const { clients } = getClients
+    const getEmployees = useSelector((state) => state.getEmployees)
+    const { employees } = getEmployees
 
-    console.log(clients)
     useEffect(() => {
-        dispatch(handleClientsList())
-    }, [])
+        dispatch(handleEmployeesList())
+    },[])
 
     return (
         <div>
@@ -22,9 +21,7 @@ export default function Clients() {
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <th>CPF</th>
                         <th>E-mail</th>
-                        <th>Phone</th>
                         <th>Address</th>
                         <th>City</th>
                         <th>User</th>
@@ -33,13 +30,11 @@ export default function Clients() {
                     </tr>
                 </thead>
                 <tbody>
-                {clients.flatMap((data, index) => (
+                {employees.flatMap((data, index) => (
                     <tr key={index}>
                         <th>{data.id}</th>
                         <th>{data.name}</th>
-                        <th>{data.cpf}</th>
                         <th>{data.email}</th>
-                        <th>{data.phone}</th>
                         <th>{data.addresses_id}</th>
                         <th>{data.cities_id}</th>
                         <th>{data.users_id}</th>

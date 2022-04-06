@@ -7,14 +7,14 @@ import Login from './pages/Login'
 import Home from './pages/Home'
 
 const App = () => {
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/login" component={Login} />
-      </Switch>
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <Switch>
+                <Route path="/" exact component={Login} />
+                <Route path="/dashboard" component={Home} />
+            </Switch>
+        </BrowserRouter>
+    );
 }
 
 export default App;

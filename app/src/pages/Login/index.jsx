@@ -18,7 +18,7 @@ export default function Login(){
 
     function authentication() {
         dispatch(handleLogin(email, password))
-        history.push('/')
+        history.push('/dashboard')
     }
 
     return(

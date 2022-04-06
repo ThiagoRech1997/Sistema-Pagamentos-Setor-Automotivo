@@ -1,7 +1,6 @@
 import { LOGIN_EMAIL, LOGIN_EMAIL_FAIL, 
     LOGIN_PASSWORD, LOGIN_PASSWORD_FAIL,
-    LOGIN_DATA_REQUEST, LOGIN_DATA, LOGIN_DATA_FAIL,
-    LOGIN_ACCESS, LOGIN_ACCESS_FAIL
+    LOGIN_DATA_REQUEST, LOGIN_DATA, LOGIN_DATA_FAIL
 } from './../constants/loginConstants'
 
 import api from './../../services/api'
@@ -40,8 +39,7 @@ export const handleLogin = (email, password) => async (dispatch) => {
     try{
         dispatch({ type: LOGIN_DATA_REQUEST})
         const res = await api.post('users/auth', { email, password })
-        dispatch(handleAccess(res.data.access))
-
+        localStorage.setItem("userToken", res.data.access)
         dispatch({
             type: LOGIN_DATA,
             payload: res.data
@@ -49,20 +47,6 @@ export const handleLogin = (email, password) => async (dispatch) => {
     }catch (error){
         dispatch({
             type: LOGIN_DATA_FAIL,
-            payload: { message: error.response.data.status_message }
-        })
-    }
-}
-
-export const handleAccess = (access) => (dispatch) => {
-    try{
-        dispatch({
-            type: LOGIN_ACCESS,
-            payload: access
-        })
-    }catch (error){
-        dispatch({
-            type: LOGIN_ACCESS_FAIL,
             payload: { message: error.response.data.status_message }
         })
     }

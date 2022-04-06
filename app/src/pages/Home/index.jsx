@@ -9,18 +9,17 @@ import Employees from './../Employees'
 export default function Home(){
     const history = useHistory()
 
-    const login = useSelector((state) => state.login)
-    const { access } = login.login
+    const storageAccess = localStorage.getItem("userToken")
 
     useEffect(() => {
-        (access === '') ? history.push('/login') : console.log(login.login)
-    }, [access, history, login])
+        (storageAccess === '') ? history.push('/login') : console.log("Ok")
+    }, [storageAccess, history])
 
     return(
         <div>
-            { access === "admin" && <Admin /> }
-            { access === "clients" && <Clients /> }
-            { access === "employees" && <Employees /> }
+            { storageAccess === "admin" && <Admin /> }
+            { storageAccess === "clients" && <Clients /> }
+            { storageAccess === "employees" && <Employees /> }
         </div>
     )
 }

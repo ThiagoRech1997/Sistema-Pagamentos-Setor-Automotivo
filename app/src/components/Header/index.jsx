@@ -1,37 +1,37 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 
 import './style.css'
 
 export default function Header() {
 
-    const applicationAccess = useSelector((state) => state.applicationAccess)
-    const { appAccess } = applicationAccess
+    const storageAccess = localStorage.getItem("userToken")
     
     return(
-        <div>
-            <div className='header'>
-                <strong>{appAccess}</strong>
-                <div className='header--menu'>
-                    { appAccess === 'admin' && <>
-                        <div>
-                            <strong>Dashboard</strong>
-                        </div>
-                        <div>
-                            <strong>Clients</strong>
-                        </div>
-                        <div>
-                            <strong>Employees</strong>
-                        </div>
-                        <div>
-                            <strong>Providers</strong>
-                        </div>
-                        <div>
-                            <strong>Products</strong>
-                        </div>
-                    </>}
-                </div>
+        <header>
+            <strong>{storageAccess}</strong>
+            <div className='header--menu'>
+                { storageAccess === 'admin' && <>
+                    <div>
+                        <a>Dashboard</a>
+                    </div>
+                    <div>
+                        <a>Clients</a>
+                    </div>
+                    <div>
+                        <a>Employees</a>
+                    </div>
+                    <div>
+                        <a>Providers</a>
+                    </div>
+                    <div>
+                        <a>Products</a>
+                    </div>
+                </>}
             </div>
-        </div>
+            <div className='header--user'>
+                <strong>Augustinho Carrara</strong>
+                <img src='https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png' alt='avatar' />
+            </div>
+        </header>
     )
 }

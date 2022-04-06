@@ -1,10 +1,33 @@
-.header {
+header {
     display: flex;
-    padding-left: 10%;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #EBEBEB;
+    padding: 0 15px;
 }
 
 .header--menu {
     display: flex;
+    width: 50%;
     justify-content: space-between;
     padding-left: 30px;
+}
+
+.header--menu div {
+    display: inline-block;
+    font-weight: bold;
+    padding: 8px 20px;
+    border-radius: 5px;
+    background-color: #FFF;
+    color: #000;
+    text-decoration: none;
+}
+
+.header--user strong {
+    padding-right: 10px;
+}
+
+.header--user img {
+    border-radius: 50%;
+    width: 50px;
 }
