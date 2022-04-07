@@ -1,7 +1,18 @@
-import React from "react"
+import React, { useEffect }from "react"
+import { useDispatch, useSelector } from 'react-redux'
 import { Table } from 'react-bootstrap'
 
+import { handleProvidersList } from './../../store/actions/providersActions'
+
 export default function Clients() {
+    const dispatch = useDispatch()
+
+    const getProviders = useSelector((state) => state.getProviders)
+    const { providers } = getProviders
+
+    useEffect(() => {
+        dispatch(handleProvidersList())
+    },[])
     return (
         <div>
             <Table striped bordered hover>
@@ -19,17 +30,19 @@ export default function Clients() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>1</th>
-                        <th>Carrara Investimentos</th>
-                        <th>000.000.000/0000-00</th>
-                        <th>contato@carrarataxi.com</th>
-                        <th>(11) 9 9999-9999</th>
-                        <th>Rua do Cacete</th>
-                        <th>Puta Que Pariu</th>
-                        <th>2022-03-31T02:06:27.000Z</th>
-                        <th>2022-03-31T02:06:27.000Z</th>
+                {providers.flatMap((data, index) => (
+                    <tr key={index}>
+                        <th>{data.id}</th>
+                        <th>{data.name}</th>
+                        <th>{data.cnpj}</th>
+                        <th>{data.email}</th>
+                        <th>{data.phone}</th>
+                        <th>{data.addresses_id}</th>
+                        <th>{data.cities_id}</th>
+                        <th>{data.createdAt}</th>
+                        <th>{data.updatedAt}</th>
                     </tr>
+                ))}
                 </tbody>
             </Table>
         </div>

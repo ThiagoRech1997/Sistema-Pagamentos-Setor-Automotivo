@@ -39,7 +39,10 @@ export const handleLogin = (email, password) => async (dispatch) => {
     try{
         dispatch({ type: LOGIN_DATA_REQUEST})
         const res = await api.post('users/auth', { email, password })
+
         localStorage.setItem("userToken", res.data.access)
+        localStorage.setItem("userName", "Administrator")
+        
         dispatch({
             type: LOGIN_DATA,
             payload: res.data

@@ -5,10 +5,10 @@ import './style.css'
 export default function Header() {
 
     const storageAccess = localStorage.getItem("userToken")
+    const storageName = localStorage.getItem("userName")
     
     return(
         <header>
-            <strong>{storageAccess}</strong>
             <div className='header--menu'>
                 { storageAccess === 'admin' && <>
                     <div>
@@ -29,7 +29,7 @@ export default function Header() {
                 </>}
             </div>
             <div className='header--user'>
-                <strong>Augustinho Carrara</strong>
+                <strong>{storageName}</strong>
                 <img src='https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png' alt='avatar' />
             </div>
         </header>

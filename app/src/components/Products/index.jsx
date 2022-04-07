@@ -1,7 +1,19 @@
-import React from "react"
+import React, { useEffect } from "react"
+import { useDispatch, useSelector } from 'react-redux'
 import { Table } from 'react-bootstrap'
 
+import { handleProductsList } from './../../store/actions/productsActions'
+
 export default function Clients() {
+    const dispatch = useDispatch()
+
+    const getProducts = useSelector((state) => state.getProducts)
+    const { products } = getProducts
+
+    useEffect(() => {
+        dispatch(handleProductsList())
+    },[])
+
     return (
         <div>
             <Table striped bordered hover>
@@ -16,14 +28,16 @@ export default function Clients() {
                     </tr>
                 </thead>
                 <tbody>
+                {products.flatMap((data, index) => (
                     <tr>
-                        <th>1</th>
-                        <th>Banana</th>
-                        <th>5kg</th>
-                        <th>R$ 100.00</th>
-                        <th>2022-03-31T02:06:27.000Z</th>
-                        <th>2022-03-31T02:06:27.000Z</th>
+                        <th>{data.id}</th>
+                        <th>{data.description}</th>
+                        <th>{data.amount}</th>
+                        <th>{data.value}</th>
+                        <th>{data.createdAt}</th>
+                        <th>{data.updatedAt}</th>
                     </tr>
+                ))}
                 </tbody>
             </Table>
         </div>
