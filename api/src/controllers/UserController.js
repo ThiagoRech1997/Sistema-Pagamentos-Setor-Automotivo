@@ -4,8 +4,6 @@ module.exports = {
     async authentication(req, res){
         const { email, password } = req.body
         const users = await User.findOne({ where: { email } })
-        //res.header("Access-Control-Allow-Origin", "*")
-        //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
 
         if(!users){
             return res.status(400).send({ error: 'User not found' })

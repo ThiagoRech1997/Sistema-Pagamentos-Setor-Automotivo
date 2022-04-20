@@ -10,7 +10,6 @@ export default function Clients() {
     const getClients = useSelector((state) => state.getClients)
     const { clients } = getClients
 
-    console.log(clients)
     useEffect(() => {
         dispatch(handleClientsList())
     }, [])

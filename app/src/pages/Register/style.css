@@ -1,0 +1,11 @@
+.register--form {
+    position: fixed;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    align-items: center;
+    padding-top: 5%;
+    padding-left: 30%;
+    padding-right: 30%;
+}

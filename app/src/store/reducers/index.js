@@ -1,10 +1,11 @@
 import { combineReducers } from "redux";
 
 import { loginReducer, loginPassworReducer, loginDataReducer } from './loginReducers'
-import { getClientsReducer } from './clientsReducers'
+import { getClientsReducer, getRegisterReducer } from './clientsReducers'
 import { getEmployeesReducer } from './employeesReducers'
 import { getProvidersReducers } from './providersReducers'
 import { getProductsReducer } from './productsReducers'
+import { headerNavigationReducer } from './headerNavigationReducers'
 
 export const reducers = combineReducers({
     loginEmail: loginReducer,
@@ -13,5 +14,7 @@ export const reducers = combineReducers({
     getClients: getClientsReducer,
     getEmployees: getEmployeesReducer,
     getProviders: getProvidersReducers,
-    getProducts: getProductsReducer
+    getProducts: getProductsReducer,
+    headerNavigation: headerNavigationReducer,
+    getRegister: getRegisterReducer
 });

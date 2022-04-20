@@ -1,0 +1,10 @@
+.product--list {
+    display: inline;
+}
+.product--item {
+    display: inline-grid;
+    padding: 20px
+}
+.product--item img {
+    width: 150px
+}

@@ -11,6 +11,8 @@ export default function Home(){
 
     const storageAccess = localStorage.getItem("userToken")
 
+    console.log(storageAccess)
+
     useEffect(() => {
         (storageAccess === '') ? history.push('/login') : console.log("Ok")
     }, [storageAccess, history])
