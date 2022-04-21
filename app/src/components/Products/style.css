@@ -8,3 +8,17 @@
 .product--item img {
     width: 150px
 }
+
+
+.cart--list {
+    display: inline;
+}
+.cart--item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.cart--item img {
+    width: 150px;
+}

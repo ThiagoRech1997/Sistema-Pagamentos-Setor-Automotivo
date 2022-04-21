@@ -6,6 +6,7 @@ import { getEmployeesReducer } from './employeesReducers'
 import { getProvidersReducers } from './providersReducers'
 import { getProductsReducer } from './productsReducers'
 import { headerNavigationReducer } from './headerNavigationReducers'
+import { itemToCartReducer } from "./cartReducers";
 
 export const reducers = combineReducers({
     loginEmail: loginReducer,
@@ -16,5 +17,6 @@ export const reducers = combineReducers({
     getProviders: getProvidersReducers,
     getProducts: getProductsReducer,
     headerNavigation: headerNavigationReducer,
-    getRegister: getRegisterReducer
+    getRegister: getRegisterReducer,
+    itemToCart: itemToCartReducer,
 });

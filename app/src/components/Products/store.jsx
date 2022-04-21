@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import './style.css'
 
 import { handleProductsList } from './../../store/actions/productsActions'
+import { addItemToCart } from "../../store/actions/cartActions"
 
 export default function ProductStore() {
     const dispatch = useDispatch()
@@ -21,7 +22,7 @@ export default function ProductStore() {
                     <img src='https://cdn-cosmos.bluesoft.com.br/products/7891079000038' alt='product' />
                     <strong>{data.description}</strong>
                     <strong>R$ {data.value}</strong>
-                    <button>Add Cart</button>
+                    <button onClick={() => dispatch(addItemToCart(index, data))}>Add Cart</button>
                 </div>
             ))}
         </div>
