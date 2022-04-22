@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import './style.css'
@@ -8,7 +8,7 @@ import { removeItemToCart } from '../../store/actions/cartActions'
 export default function Cart() {
     const dispatch = useDispatch()
     const itemToCart = useSelector((state) => state.itemToCart)
-    const { Items } = itemToCart
+    const { Items, amount } = itemToCart
 
     return(
         <div className='cart--list'>
@@ -20,6 +20,10 @@ export default function Cart() {
                     <button onClick={() => dispatch(removeItemToCart(index, data))}>Remove Cart</button>
                 </div>
             ))}
+            <div>
+                <strong>Amount: R$ {amount}</strong>
+                <button>Buy</button>
+            </div>
         </div>
     )
 }

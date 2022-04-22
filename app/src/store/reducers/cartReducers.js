@@ -3,14 +3,15 @@ import {
 } from './../constants/cartConstants'
 
 export const itemToCartReducer = (
-    state = { Items: [] },
+    state = { Items: [], amount: 0 },
     action
 ) => {
     switch(action.type){
         case ADD_ITEM_TO_CART:
             return {
                 ...state,
-                Items: [...state.Items, action.payload]
+                Items: [...state.Items, action.payload],
+                amount: state.amount + parseInt(action.payload.value)
             }
         case ADD_ITEM_TO_CART_FAIL:
             return {
@@ -20,7 +21,8 @@ export const itemToCartReducer = (
         case REMOVE_ITEM_TO_CART:
             return {
                 ...state,
-                Items: state.Items.filter((x, index) => index !== action.index)
+                Items: state.Items.filter((x, index) => index !== action.index),
+                amount: state.amount - parseInt(action.payload.value)
             }
         case REMOVE_ITEM_TO_CART_FAIL:
             return {
