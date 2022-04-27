@@ -10,22 +10,16 @@ module.exports = {
         return res.json(purchases)
     },
     async store(req, res){
-        const { finalPrice, providers_id, products_id } = req.body
+        const { finalPrice, providers_id } = req.body
 
         const providers = await Providers.findByPk(providers_id)
         if(!providers){
             return res.status(400).json({ error: 'Provider not found' })
         }
 
-        const products = await Products.findByPk(products_id)
-        if(!products){
-            return res.status(400).json({ error: 'Product not found' })
-        }
-
         const purchases = await Purchases.create({ 
             finalPrice,
-            providers_id,
-            products_id
+            providers_id
         })
 
         return res.json(Purchases)
