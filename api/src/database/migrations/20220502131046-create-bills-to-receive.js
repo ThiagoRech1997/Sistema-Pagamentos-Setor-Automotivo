@@ -28,7 +28,7 @@ module.exports = {
         type: Sequelize.DECIMAL,
         allowNull: false,
       },
-      seller_id: {
+      seles_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
