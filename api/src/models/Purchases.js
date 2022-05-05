@@ -1,9 +1,8 @@
-const { Model, DataTypes } = require('sequelize')
+const { Model } = require('sequelize')
 
 class Purchases extends Model {
     static init(sequelize) {
         super.init({
-            finalPrice: DataTypes.DECIMAL,
         },{
             sequelize
         })

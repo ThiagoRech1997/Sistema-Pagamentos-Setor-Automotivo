@@ -1,7 +1,6 @@
 const Sales = require('./../models/Sales')
 
 const Clients = require('./../models/Clients')
-const Products = require('./../models/Products')
 
 module.exports = {
     async index(req, res){
@@ -10,7 +9,7 @@ module.exports = {
         return res.json(sales)
     },
     async store(req, res){
-        const { finalPrice, clients_id } = req.body
+        const { clients_id } = req.body
 
         const clients = await Clients.findByPk(clients_id)
         if(!clients){
@@ -18,7 +17,6 @@ module.exports = {
         }
 
         const sales = await Sales.create({ 
-            finalPrice,
             clients_id
         })
 

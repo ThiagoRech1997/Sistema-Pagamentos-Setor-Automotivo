@@ -9,10 +9,6 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
-      finalPrice: {
-        type: Sequelize.DECIMAL,
-        allowNull: false,
-      },
       providers_id: {
         type: Sequelize.INTEGER,
         allowNull: false,

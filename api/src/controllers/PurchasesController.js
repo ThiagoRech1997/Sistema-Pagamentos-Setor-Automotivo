@@ -1,7 +1,6 @@
 const Purchases = require('./../models/Purchases')
 
 const Providers = require('./../models/Providers')
-const Products = require('./../models/Products')
 
 module.exports = {
     async index(req, res){
@@ -10,7 +9,7 @@ module.exports = {
         return res.json(purchases)
     },
     async store(req, res){
-        const { finalPrice, providers_id } = req.body
+        const { providers_id } = req.body
 
         const providers = await Providers.findByPk(providers_id)
         if(!providers){
@@ -18,7 +17,6 @@ module.exports = {
         }
 
         const purchases = await Purchases.create({ 
-            finalPrice,
             providers_id
         })
 
