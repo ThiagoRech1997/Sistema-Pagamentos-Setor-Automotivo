@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize')
 
-class Product_Purchase extends Model {
+class ProductSale extends Model {
     static init(sequelize) {
         super.init({
             unitary_value: DataTypes.DECIMAL,
@@ -11,9 +11,9 @@ class Product_Purchase extends Model {
     }
 
     static associate(models) {
-        this.belongsTo(models.Purchases, { foreignKey: 'purchases_id', as: 'purchases' })
+        this.belongsTo(models.Sales, { foreignKey: 'sales_id', as: 'sales' })
         this.belongsTo(models.Products, { foreignKey: 'products_id', as: 'products' })
     }
 }
 
-module.exports = Product_Purchase
+module.exports = ProductSale

@@ -9,12 +9,9 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
-      due_date: {
-        type: Sequelize.DATE,
+      status: {
+        type: Sequelize.STRING,
         allowNull: false,
-      },
-      payment_date: {
-        type: Sequelize.DATE,
       },
       total_purchase: {
         type: Sequelize.DECIMAL,

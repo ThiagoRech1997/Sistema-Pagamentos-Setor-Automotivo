@@ -3,8 +3,7 @@ const { Model, DataTypes } = require('sequelize')
 class BillsToReceive extends Model {
     static init(sequelize) {
         super.init({
-            due_date: DataTypes.DATE,
-            payment_date: DataTypes.DATE,
+            status: DataTypes.STRING,
             total_sale: DataTypes.DECIMAL,
             number_installments: DataTypes.STRING,
             installment_value: DataTypes.DECIMAL
