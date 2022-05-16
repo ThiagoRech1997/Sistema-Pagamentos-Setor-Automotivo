@@ -14,7 +14,7 @@ export default function Cart() {
         <div className='cart--list'>
             {Items.map((data, index) => (
                 <div key={index} className='cart--item'>
-                    <img src='https://cdn-cosmos.bluesoft.com.br/products/7891079000038' alt='product' />
+                    <img src='https://upload.wikimedia.org/wikipedia/commons/1/14/Product_sample_icon_picture.png' alt='product' />
                     <strong>{data.description}</strong>
                     <strong>R$ {data.value}</strong>
                     <button onClick={() => dispatch(removeItemToCart(index, data))}>Remove Cart</button>

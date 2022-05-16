@@ -9,6 +9,9 @@ const ProvidersController = require('./controllers/ProvidersController')
 const ProductsController = require('./controllers/ProductsController')
 const SalesController = require('./controllers/SalesController')
 const PurchasesController = require('./controllers/PurchasesController')
+const ProductSaleController = require('./controllers/ProductSaleController')
+const BillsToReceive = require('./controllers/BillsToReceiveController')
+const { route } = require('./server')
 
 const routes = express.Router()
 
@@ -39,5 +42,11 @@ routes.post('/sales', SalesController.store)
 
 routes.get('/purchases', PurchasesController.index)
 routes.post('/purchases', PurchasesController.store)
+
+routes.get('/productSale', ProductSaleController.index)
+routes.post('/productSale', ProductSaleController.store)
+
+routes.get('/billsToReceive', BillsToReceive.index)
+routes.post('/billsToReceive', BillsToReceive.store)
 
 module.exports = routes

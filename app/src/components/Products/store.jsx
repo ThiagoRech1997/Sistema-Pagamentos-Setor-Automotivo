@@ -19,7 +19,7 @@ export default function ProductStore() {
         <div className='product--list'>
             {products.map((data, index) => (
                 <div key={index} className='product--item'>
-                    <img src='https://cdn-cosmos.bluesoft.com.br/products/7891079000038' alt='product' />
+                    <img src='https://upload.wikimedia.org/wikipedia/commons/1/14/Product_sample_icon_picture.png' alt='product' />
                     <strong>{data.description}</strong>
                     <strong>R$ {data.value}</strong>
                     <button onClick={() => dispatch(addItemToCart(index, data))}>Add Cart</button>
