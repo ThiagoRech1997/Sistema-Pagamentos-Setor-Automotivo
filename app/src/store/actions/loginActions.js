@@ -40,6 +40,11 @@ export const handleLogin = (email, password) => async (dispatch) => {
         dispatch({ type: LOGIN_DATA_REQUEST})
         const res = await api.post('users/auth', { email, password })
 
+        if(res.data.access === "clients"){
+            var name = await api.get('clients')
+            name.filter((x, index) => x.user_id === res.data.id)
+        }
+
         localStorage.setItem("userToken", res.data.access)
         localStorage.setItem("userName", "Administrator")
         
