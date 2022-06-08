@@ -11,7 +11,6 @@ const SalesController = require('./controllers/SalesController')
 const PurchasesController = require('./controllers/PurchasesController')
 const ProductSaleController = require('./controllers/ProductSaleController')
 const BillsToReceive = require('./controllers/BillsToReceiveController')
-const { route } = require('./server')
 
 const routes = express.Router()
 
