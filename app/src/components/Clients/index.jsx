@@ -12,7 +12,7 @@ export default function Clients() {
 
     useEffect(() => {
         dispatch(handleClientsList())
-    }, [])
+    }, [dispatch])
 
     return (
         <div>
