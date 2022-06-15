@@ -12,7 +12,7 @@ export default function Clients() {
 
     useEffect(() => {
         dispatch(handleProvidersList())
-    },[])
+    },[dispatch])
     return (
         <div>
             <Table striped bordered hover>

@@ -14,7 +14,7 @@ export default function ProductStore() {
 
     useEffect(() => {
         dispatch(handleProductsList())
-    },[])
+    },[dispatch])
     return(
         <div className='product--list'>
             {products.map((data, index) => (
