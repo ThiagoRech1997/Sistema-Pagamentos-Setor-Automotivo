@@ -2,7 +2,7 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    queryInterface.addConstraint('productSales', {
+    queryInterface.addConstraint('product_sales', {
       fields: ['products_id'],
       type: 'foreign key',
       name: 'product_seller_products',
@@ -16,7 +16,7 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    queryInterface.removeConstraint('productSales', {
+    queryInterface.removeConstraint('product_sales', {
       fields: ['products_id'],
       type: 'foreign key',
       name: 'product_seller_products',

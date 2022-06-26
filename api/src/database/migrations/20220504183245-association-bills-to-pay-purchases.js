@@ -2,7 +2,7 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    queryInterface.addConstraint('bills-to-pay', {
+    queryInterface.addConstraint('bills_to_pay', {
       fields: ['purchases_id'],
       type: 'foreign key',
       name: 'bills_to_pay_purchases',
@@ -16,7 +16,7 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    queryInterface.removeConstraint('bills-to-pay', {
+    queryInterface.removeConstraint('bills_to_pay', {
       fields: ['purchases_id'],
       type: 'foreign key',
       name: 'bills_to_pay_purchases',
